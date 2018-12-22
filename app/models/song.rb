@@ -7,11 +7,11 @@ class Song < ActiveRecord::Base
 
   def artist_name=(name)
     @artist = Artist.find_by(name: name)
-    pry
     if @artist.nil?
-
-    else
-
+      self.artist = Artist.new(name: name)
+    else 
+      self.artist = @artist  
     end
+    pry
   end
 end
