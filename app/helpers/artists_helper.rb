@@ -1,9 +1,9 @@
 module ArtistsHelper
   def display_artist(song)
     if song.artist.nil?
-      link_to "Add Artist" edit_song_path(song)
+      concat(render(:partial =>"artist/link", locals:{name:"Add Artist",link:edit_song_path(song)}))
     else
-      link_to song.artist_name artist_path(song.artist)
+      concat(render(:partial =>"artist/link", locals:{name:song.artist_name,link:artist_path(song.artist)}))
     end
   end
 end
