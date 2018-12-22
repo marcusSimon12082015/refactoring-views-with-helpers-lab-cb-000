@@ -431,3 +431,27 @@ ActionView::Template::Error (undefined method `name' for #<#<Class:0x007fa41881e
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.6ms)
+
+
+Started GET "/songs/1" for 89.212.10.198 at 2018-12-22 20:01:46 +0000
+Cannot render console from 89.212.10.198! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArtist Load (0.1ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered artists/_link.html.erb (4.9ms)
+  Rendered songs/show.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    1: <%= link_to name.to_str link %>
+  app/views/artists/_link.html.erb:1:in `to_str'
+  app/views/artists/_link.html.erb:1:in `_app_views_artists__link_html_erb___2511391588538439699_37615300'
+  app/helpers/artists_helper.rb:7:in `display_artist'
+  app/views/songs/show.html.erb:2:in `_app_views_songs_show_html_erb___1494306409518684692_36602800'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.0ms)
