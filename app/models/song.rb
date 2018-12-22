@@ -9,8 +9,8 @@ class Song < ActiveRecord::Base
     @artist = Artist.find_by(name: name)
     if @artist.nil?
       self.artist = Artist.new(name: name)
-    else 
-      self.artist = @artist  
+    else
+      self.artist = @artist
     end
     pry
   end
