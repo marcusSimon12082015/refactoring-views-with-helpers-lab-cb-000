@@ -12,6 +12,5 @@ class Song < ActiveRecord::Base
     else
       self.artist = @artist
     end
-    pry
   end
 end
