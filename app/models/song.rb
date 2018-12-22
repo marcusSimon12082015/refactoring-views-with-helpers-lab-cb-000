@@ -9,9 +9,9 @@ class Song < ActiveRecord::Base
     @artist = Artist.find(name: name)
     pry
     if @artist.nil?
-      
-    else 
 
-    end  
+    else
+
+    end
   end
 end
