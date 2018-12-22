@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name=(name)
-    @artist = Artist.find(name: name)
+    @artist = Artist.find_by(name: name)
     pry
     if @artist.nil?
 
